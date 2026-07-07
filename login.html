@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Iniciar sesión</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+
+}
+
+.login{
+
+    width:380px;
+    background:#1b1b1b;
+    border-radius:15px;
+    padding:40px;
+    box-shadow:0 0 30px rgba(0,0,0,.5);
+
+}
+
+h1{
+
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+
+}
+
+input{
+
+    width:100%;
+    margin-bottom:20px;
+    padding:15px;
+    background:#252525;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-size:16px;
+
+}
+
+input:focus{
+
+    outline:none;
+    background:#303030;
+
+}
+
+button{
+
+    width:100%;
+    padding:15px;
+    background:#0066ff;
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#0052cc;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login">
+
+<h1>Iniciar sesión</h1>
+
+<form action="/login" method="POST">
+
+<input
+type="text"
+name="username"
+placeholder="Usuario"
+required>
+
+<input
+type="password"
+name="password"
+placeholder="Contraseña"
+required>
+
+<button>
+
+Entrar
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
