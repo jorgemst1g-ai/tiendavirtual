@@ -5,108 +5,245 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Galería</title>
+<title>Games</title>
 
 <style>
 
 *{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
-background:#111;
-color:white;
-
+    background:#111;
+    color:white;
 }
 
 header{
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 60px;
-background:#1a1a1a;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:25px 60px;
+
+    background:rgba(26,26,26,.88);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid #2a2a2a;
 
 }
 
 header h1{
-
-font-size:28px;
-
+    font-size:30px;
+    font-weight:300;
+    letter-spacing:1px;
 }
 
 .logout{
-
-background:#ff3b30;
-padding:12px 18px;
-border-radius:8px;
-color:white;
-text-decoration:none;
-
+    background:#ff3b30;
+    padding:12px 18px;
+    border-radius:8px;
+    color:white;
+    text-decoration:none;
 }
 
 .container{
 
-display:grid;
+    max-width:1400px;
+    margin:auto;
+    padding:40px;
 
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
 
-gap:30px;
-
-padding:40px;
+    gap:35px;
 
 }
 
 .card{
 
-background:#1f1f1f;
-border-radius:15px;
-overflow:hidden;
-transition:.25s;
+    background:#1b1b1b;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid #2d2d2d;
+    transition:.25s;
 
 }
+
+.card{
+
+    position:relative;
+    background:#1b1b1b;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+    animation:aparecer .6s ease;
+
+}
+
+
+
+
+
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+
+
 
 .card:hover{
 
-transform:translateY(-6px);
+    transform:translateY(-8px);
+    box-shadow:
+        0 0 30px rgba(0,102,255,.25),
+        0 15px 35px rgba(0,0,0,.5);
 
 }
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
 
 .card img{
 
-width:100%;
-height:180px;
-object-fit:cover;
+    width:100%;
+    height:auto;
+    display:block;
+
+    transition:.35s;
 
 }
 
+
 .info{
 
-padding:20px;
+    padding:20px;
+    text-align:center;
 
 }
 
 .info h2{
 
-margin-bottom:15px;
+    margin-bottom:15px;
+    font-weight:400;
 
 }
 
+
+.contador{
+
+    margin-top:6px;
+    color:#888;
+    font-size:14px;
+
+}
+
+
+
 .info a{
 
-display:inline-block;
-margin-top:10px;
-text-decoration:none;
-background:#0066ff;
-padding:12px 18px;
-border-radius:8px;
-color:white;
+    display:inline-block;
+    text-decoration:none;
+    background:#0066ff;
+    padding:30px 60px;
+    border-radius:10px;
+    color:white;
+    font-size:25px;
+    font-weight:500;
+    transition:.2s;
+
+}
+
+.info a:hover{
+
+    background:#3385ff;
+
+}
+
+
+.tag{
+
+    position:absolute;
+    top:15px;
+    left:15px;
+
+    background:#ff9800;
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    z-index:2;
+
+}
+
+
+
+/* ===========================
+   PLANTILLA PARA NUEVOS JUEGOS
+
+<div class="card">
+
+    <img src="URL_IMAGEN">
+
+    <div class="info">
+
+        <h2>Nombre del juego</h2>
+
+        <a href="URL_DEL_JUEGO" target="_blank">
+
+            Nombre del juego
+
+        </a>
+
+    </div>
+
+</div>
+
+=========================== */
+
+@media(max-width:900px){
+
+.container{
+
+    grid-template-columns:1fr;
+
+}
 
 }
 
@@ -118,7 +255,12 @@ color:white;
 
 <header>
 
-<h1>Mi Galería</h1>
+<h1>Mr.Horchatita Games</h1>
+
+<p class="contador">8 juegos disponibles</p>
+
+</div>
+
 
 <a href="/logout" class="logout">
 
@@ -132,15 +274,17 @@ Cerrar sesión
 
 <div class="card">
 
-<img src="https://picsum.photos/600/400?1">
+<div class="tag">Necesita de un emulador.</div>
+
+<img src="https://cdn2.steamgriddb.com/thumb/73e9ecdc8a5d9c1e55146dd3abbc81f7.jpg">
 
 <div class="info">
 
-<h2>Google</h2>
+<h2>Animal Crossing</h2>
 
-<a href="https://google.es" target="_blank">
+<a href="https://www.mediafire.com/file/l5lu7p9g3fl03l4/animalcrossingnewhorizonsdirect2.20.2020fzezghhgs_archive.torrent/file">
 
-Entrar
+Animal Crossing
 
 </a>
 
@@ -150,15 +294,15 @@ Entrar
 
 <div class="card">
 
-<img src="https://picsum.photos/600/400?2">
+<img src="https://cdn2.steamgriddb.com/thumb/3f12b5181131969b037cbac2fd650150.png">
 
 <div class="info">
 
-<h2>YouTube</h2>
+<h2>Balatro</h2>
 
-<a href="https://youtube.com" target="_blank">
+<a href="https://www.mediafire.com/file/lltxitknam009j7/Balatro.torrent/file" target="_blank">
 
-Entrar
+Balatro
 
 </a>
 
@@ -168,15 +312,109 @@ Entrar
 
 <div class="card">
 
-<img src="https://picsum.photos/600/400?3">
+<img src="https://cdn2.steamgriddb.com/thumb/0c6b61e4af7d21d8ea380378ebacf897.jpg">
 
 <div class="info">
 
-<h2>GitHub</h2>
+<h2>FIFA 22</h2>
 
-<a href="https://github.com" target="_blank">
+<a href="https://www.mediafire.com/file/615vq5h509lw2bx/FIFA-22-AnkerGames.rar.torrent/file" target="_blank">
 
-Entrar
+FIFA 22
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://cdn2.steamgriddb.com/thumb/dd34654c1d81c3802ee238ec51b6343b.jpg">
+
+<div class="info">
+
+<h2>Mortal Kombat 11</h2>
+
+<a href="https://www.mediafire.com/file/ny03o12oveoepiz/Mortal-Kombat-11-AnkerGames.zip.torrent/file" target="_blank">
+
+MK11
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://cdn2.steamgriddb.com/thumb/b36df1524c2fcbe394a47a1f27b696bb.jpg">
+
+<div class="info">
+
+<h2>Red Dead Redemption 2</h2>
+
+<a href="https://www.mediafire.com/file/4zg4hyye21xjk48/Red-Dead-Redemption-2-SteamRIP.com.torrent/file" target="_blank">
+
+RDR2
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://cdn2.steamgriddb.com/thumb/7085307072925ee2a3e84f0d2d1ca6a1.jpg">
+
+<div class="info">
+
+<h2>Stardew Valley</h2>
+
+<a href="https://www.mediafire.com/file/1wg1two3v42umez/Stardew-Valley-AnkerGames.rar.torrent/file" target="_blank">
+
+Stardew Valley
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="tag">Necesita de un emulador.</div>
+
+<img src="https://cdn2.steamgriddb.com/thumb/39eaa84fa49b129edaa137171ba60746.jpg">
+
+<div class="info">
+
+<h2>Super Mario 3D World</h2>
+
+<a href="https://www.mediafire.com/file/jboph0gst1ob14y/Super_Mario_3D_World_%252B_Bowser%2527s_Fury_%255BFitGirl_Repack%255D.torrent/file" target="_blank">
+
+Super Mario 3D World
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="tag">Necesita de un emulador.</div>
+
+<img src="https://cdn2.steamgriddb.com/thumb/937fd1a5d7cefa35976ae8493db5ab79.jpg">
+
+<div class="info">
+
+<h2>Super Mario Odyssey</h2>
+
+<a href="https://drive.google.com/file/d/1tclYt8QRGLU8XwamCEmgmtuVVP0U6AtM/view?usp=drive_link" target="_blank">
+
+Super Mario Odyssey
 
 </a>
 
